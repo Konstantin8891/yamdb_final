@@ -1,0 +1,4 @@
+[31;1mSystemCheckError: System check identified some issues:
+[0m
+ERRORS:
+[31;1m<class 'api.admin.TitleAdmin'>: (admin.E109) The value of 'list_display[4]' must not be a ManyToManyField.[0m
