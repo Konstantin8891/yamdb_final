@@ -1,11 +1,11 @@
-from django.urls import path, include
-from rest_framework import routers
-
 from .views import (
     UserKeyView,
     UserAuthView,
     UsersViewSet
 )
+
+from django.urls import path, include
+from rest_framework import routers
 
 app_name = 'users'
 

@@ -1,6 +1,5 @@
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
-
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
@@ -8,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.status import (
-    HTTP_400_BAD_REQUEST,
-    HTTP_200_OK
+    HTTP_200_OK,
+    HTTP_400_BAD_REQUEST
 )
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
