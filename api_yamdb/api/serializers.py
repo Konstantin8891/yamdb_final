@@ -43,6 +43,7 @@ class TitleSerializer(ModelSerializer):
         for rating in rate.values():
             if rating:
                 return int(rating)
+        return None
 
 
 class TitlePostSerializer(ModelSerializer):
