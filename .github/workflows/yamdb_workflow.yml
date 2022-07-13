@@ -58,7 +58,7 @@ jobs:
           sudo docker pull konstantin05/yamdb_final:latest
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 4000:4000 konstantin05/yamdb_final:latest
-          sudo docker exec konstantin05/yamdb_final:latest python manage.py makemigrations
-          sudo docker exec konstantin05/yamdb_final:latest python manage.py migrate
-          sudo docker exec konstantin05/yamdb_final:latest python manage.py createsuperuser
-          sudo docker exec konstantin05/yamdb_final:latest python manage.py collectstatic --no-input
+          sudo docker exec yamdb_final:latest python manage.py makemigrations
+          sudo docker exec yamdb_final:latest python manage.py migrate
+          sudo docker exec yamdb_final:latest python manage.py createsuperuser
+          sudo docker exec yamdb_final:latest python manage.py collectstatic --no-input
