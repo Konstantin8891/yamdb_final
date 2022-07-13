@@ -1,8 +1,5 @@
-from rest_framework.permissions import (
-    BasePermission,
-    SAFE_METHODS,
-    IsAdminUser
-)
+from rest_framework.permissions import (SAFE_METHODS, BasePermission,
+                                        IsAdminUser)
 
 
 class IsOwnerModerAdminOrReadOnly(BasePermission):

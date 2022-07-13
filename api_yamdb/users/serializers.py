@@ -1,3 +1,4 @@
+from api.utils import get_check_hash
 from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
 from django.core.validators import RegexValidator
@@ -5,7 +6,6 @@ from rest_framework.serializers import CharField, EmailField, ModelSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import CustomUser
-from api.utils import get_check_hash
 
 
 class UserCreateSerializer(ModelSerializer):
