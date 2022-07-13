@@ -1,7 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail
 from django.core.validators import RegexValidator
-from rest_framework.serializers import ModelSerializer, CharField, EmailField
+from rest_framework.serializers import CharField, EmailField, ModelSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from api.utils import get_check_hash
