@@ -54,7 +54,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-      script: |
-        sudo docker pull konstantin05/yamdb_final:latest
-        sudo docker stop$(sudo docker ps -a -q)
-        sudo docker run --rm -d -p 5000:5000 konstantin05/yamdb_final:latest
+        script: |
+          sudo docker pull konstantin05/yamdb_final:latest
+          sudo docker stop$(sudo docker ps -a -q)
+          sudo docker run --rm -d -p 5000:5000 konstantin05/yamdb_final:latest
