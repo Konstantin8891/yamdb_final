@@ -4,8 +4,8 @@ from django.core.validators import RegexValidator
 from rest_framework.serializers import CharField, EmailField, ModelSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from api.utils import get_check_hash
 from .models import CustomUser
+from api.utils import get_check_hash
 
 
 class UserCreateSerializer(ModelSerializer):

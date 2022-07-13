@@ -1,5 +1,4 @@
 from django.db.models import Avg
-
 from rest_framework.serializers import (
     ModelSerializer,
     SerializerMethodField,
