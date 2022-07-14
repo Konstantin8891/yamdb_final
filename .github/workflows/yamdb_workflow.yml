@@ -41,6 +41,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: ./api_yamdb/Dockerfile
           push: true
           tags: konstantin05/yamdb_final:latest
   deploy:
@@ -61,4 +63,3 @@ jobs:
           sudo docker exec yamdb_final python manage.py makemigrations
           sudo docker exec yamdb_final python manage.py migrate
           sudo docker exec yamdb_final python manage.py createsuperuser
-          sudo docker exec yamdb_final python manage.py collectstatic --no-input
