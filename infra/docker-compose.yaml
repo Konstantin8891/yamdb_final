@@ -14,9 +14,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: 
-      context: ../
-      dockerfile: ./api_yamdb/Dockerfile
+    image: konstantin05/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/app/static/
