@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./api_yamdb
-          file: ./Dockerfile
+          # file: ./api_yamdb/Dockerfile
           push: true
           tags: konstantin05/yamdb_final:latest
   deploy:
@@ -51,7 +51,7 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
-        context: ./api_yamdb
+        # context: ./api_yamdb
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
