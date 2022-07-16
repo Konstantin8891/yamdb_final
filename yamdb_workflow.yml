@@ -40,8 +40,8 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./api_yamdb/Dockerfile
+          context: ./api_yamdb
+          # file: ./api_yamdb/Dockerfile
           push: true
           tags: konstantin05/yamdb_final:latest
   deploy:
@@ -51,12 +51,14 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
+        # context: ./api_yamdb
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           sudo docker-compose stop
+          sudo docker system prune -f
           sudo docker-compose rm web
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
@@ -66,10 +68,9 @@ jobs:
           echo DB_HOST=${{ secrets.DB_HOST }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           sudo docker-compose up -d
-          sudo docker-compose exec web python manage.py makemigrations
-          sudo docker-compose exec web python manage.py migrate
-          sudo docker-compose exec web python manage.py createsuperuser
-          sudo docker-compose exec web python manage.py collectstatic --no-input
+          sudo docker-compose exec -T web python manage.py makemigrations
+          sudo docker-compose exec -T web python manage.py migrate
+          sudo docker-compose exec -T web python manage.py collectstatic --no-input
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
