@@ -22,13 +22,21 @@
 - Для детального описания функционала API применена библиотека   [Redoc](https://github.com/Redocly/redoc)
 
 ## Шаблон env-файла
+
 Secret - секрет Джанго
+
 Данные БД Postgres: 
+
 DB_ENGINE - движок postgres
+
 DB_NAME - имя БД
+
 POSTGRES_USER - пользователь БД
+
 POSTGRES_PASSWORD - пароль БД
+
 DB_HOST - название сервиса (контейнера)
+
 DB_PORT - порт для подключения к БД 
 
 ## Запуск контейнеров:
