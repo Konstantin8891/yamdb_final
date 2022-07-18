@@ -21,67 +21,38 @@
 - Создание, обновление и проверка JWT authentication токенов пользователей
 - Для детального описания функционала API применена библиотека   [Redoc](https://github.com/Redocly/redoc)
 
-## Минимальные требования:
-- Установка Python 3.7 и подготовка окружения
-Установите программное обеспечение: скачайте установочные файлы и запустите их.
-Python: www.python.org/downloads/ устанавливаем Python 3.7
-Visual Studio Code: code.visualstudio.com/download
-Git: git-scm.com/download/win
-- Терминал для Unix систем или командная строка (или любой эмулятор терминала) для Windows
-- Пошаговое выполнение инструкций по установке с поправкой на используемую систему
-> Всё остальное будет установлено автоматически в процессе установки проекта на локальной машине
+## Шаблон env-файла
+Secret - секрет Джанго
+Данные БД Postgres: 
+DB_ENGINE - движок postgres
+DB_NAME - имя БД
+POSTGRES_USER - пользователь БД
+POSTGRES_PASSWORD - пароль БД
+DB_HOST - название сервиса (контейнера)
+DB_PORT - порт для подключения к БД 
 
-## Установка:
-Перед началом установки перейдите на компьютере в директорию в которой дальше будете продолжать работать с проектом используя терминал для Unix систем или командную строку (или любой эмулятор терминала) для Windows.
-> Все действия в процессе установки проводятся в терминале для Unix систем или командной строке для Windows.
+## Запуск контейнеров:
+Перед началом установки перейдите на компьютере в директорию с файлом docker-compose.yaml.
 
-### 1. Клонировать репозиторий и перейти в него в командной строке (терминале):
+### 1. Развернуть проект:
 ```sh
-git clone git@github.com:letulip/api_yamdb.git
-cd api_yamdb
+docker-compose up -d
 ```
-### 2. Cоздать и активировать виртуальное окружение:
+### 2. Сделать миграции:
 ```sh
-на Mac или Linux:
-python3 -m venv env
-source env/bin/activate
-для Windows:
-python -m venv venv
-source venv/Scripts/activate
+docker-compose exec web python manage.py migrate
 ```
-### 3. Установить зависимости из файла requirements.txt:
+### 3. Создать суперпользователя:
 ```sh
-Обновляем pip
-на Mac или Linux:
-python3 -m pip install --upgrade pip
-для Windows:
-python -m pip install --upgrade pip
-
-Установить зависимости из файла requirements.txt:
-pip install -r requirements.txt
+docker-compose exec web python manage.py createsuperuser
 ```
-### 4. Выполнить миграции и запустить проект:
+### 4. Собрать статику:
 ```sh
-Выполнить миграции:
-
-на Mac или Linux:
-python3 manage.py migrate
-для Windows:
-python manage.py migrate
-
-Запустить проект:
-на Mac или Linux:
-python3 manage.py runserver
-для Windows:
-python manage.py runserver
+docker-compose exec web python manage.py collectstatic --no-input
 ```
-### 5. Локальный сервер с проектом запущен!
+### 5. Импорт базы:
 ```sh
-System check identified no issues (0 silenced).
-April 18, 2022 - 08:12:10
-Django version 2.2.16, using settings 'api_yamdb.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
+docker-compose exec web python manage.py dumpdata > дамп_бд.json
 ```
 
 ## Примеры запросов:
@@ -235,8 +206,4 @@ Quit the server with CONTROL-C.
 
 - Владимирский Игорь [GitHub профиль](https://github.com/letulip)
 - Ахметжанов Ильдар [GitHub профиль](https://github.com/ma9or)
-- Васильев Константин [GitHub профиль](https://github.com/Konstantin8891) 89670253660@mail.ru +79117836285 WhatsApp, Telegram
-
-
-
-
+- Васильев Константин [GitHub профиль](https://github.com/Konstantin8891)
