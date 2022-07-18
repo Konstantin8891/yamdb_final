@@ -21,6 +21,11 @@
 - Создание, обновление и проверка JWT authentication токенов пользователей
 - Для детального описания функционала API применена библиотека   [Redoc](https://github.com/Redocly/redoc)
 
+## Минимальные требования:
+- Установка Docker 
+
+Выполните установку docker для вашей операционной системы согласно инструкции на официальном сайте https://docs.docker.com/desktop/
+
 ## Шаблон env-файла
 
 Secret - секрет Джанго
@@ -42,23 +47,19 @@ DB_PORT - порт для подключения к БД
 ## Запуск контейнеров:
 Перед началом установки перейдите на компьютере в директорию с файлом docker-compose.yaml.
 
-### 1. Развернуть проект:
+### 1. Клонируйте проект:
+```sh
+git@github.com:Konstantin8891/yamdb_final.git
+```
+### 2. Разверните проект:
 ```sh
 docker-compose up -d
-```
-### 2. Сделать миграции:
-```sh
-docker-compose exec web python manage.py migrate
 ```
 ### 3. Создать суперпользователя:
 ```sh
 docker-compose exec web python manage.py createsuperuser
 ```
-### 4. Собрать статику:
-```sh
-docker-compose exec web python manage.py collectstatic --no-input
-```
-### 5. Импорт базы:
+### 4. Импорт базы данных:
 ```sh
 docker-compose exec web python manage.py dumpdata > дамп_бд.json
 ```
