@@ -22,9 +22,44 @@
 - Для детального описания функционала API применена библиотека   [Redoc](https://github.com/Redocly/redoc)
 
 ## Минимальные требования:
-- Установка Docker 
+
+Установка Docker 
 
 Выполните установку docker для вашей операционной системы согласно инструкции на официальном сайте https://docs.docker.com/desktop/
+
+### Windows
+
+- Убедитесь, что ваша версия Windows соответствует минимальным требованиям:
+
+Windows 11 64-bit: Home или Pro version 21H2 или выше или Enterprise или Education version 21H2 или выше.
+
+Windows 10 64-bit: Home или Pro 21H1 (build 19043) или выше или Enterprise или Education 20H2 (build 19042) или выше.
+
+- Убедитесь, что ваш ПК соответствует минимальным требованиям:
+
+64-битный процессор с поддержкой SLAT
+
+4 Гб ОЗУ
+
+- Убедитесь, что в биос включена виртуализация
+
+- Установите WSL 2 из терминала
+
+wsl --install
+
+- Проверьте установку 
+
+wsl -l -v
+
+- Скачайте и установите пакет обновления ядра Linux
+
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+
+- Установите Docker Desktop
+
+https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+
+- Запустите Docker Desktop
 
 ## Шаблон env-файла
 
