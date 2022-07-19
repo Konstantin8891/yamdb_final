@@ -99,7 +99,7 @@ sudo apt update
 
 - установите пакеты для загрузки через https
 
-sudo apt install \
+sudo apt install \\
   apt-transport-https \
   ca-certificates \
   curl \
