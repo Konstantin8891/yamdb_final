@@ -100,10 +100,15 @@ sudo apt update
 - установите пакеты для загрузки через https
 
 sudo apt install \\
-  apt-transport-https \
-  ca-certificates \
-  curl \
-  gnupg-agent \
+  
+  apt-transport-https \\
+  
+  ca-certificates \\
+  
+  curl \\
+  
+  gnupg-agent \\
+  
   software-properties-common -y 
   
 - добавьте ключ gpg
