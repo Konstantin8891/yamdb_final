@@ -61,6 +61,71 @@ https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
 
 - Запустите Docker Desktop
 
+### Ubuntu
+
+Убедитесь, что ваш ПК соответствует минимальным требованиям:
+
+- 64-битное ядро и CPU с поддержкой виртуализации
+
+- поддержка KVM виртуализации. Откройте терминал и введите
+
+modprobe kvm_intel # для процессоров Intel
+
+modprove kvm_amd # для процессоров AMD
+
+- QEMU версии 5.2 или выше
+- система инициализации systemd
+- графическое окружение Gnome или KDE 
+- 4 ГБ ОЗУ
+- установите curl
+
+sudo apt install curl
+
+- скачайте скрипт для установки docker
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+- запустите скрипт
+
+sh get-docker.sh
+
+- удалите старые версии файлов
+
+sudo apt remove docker docker-engine docker.io containerd runc 
+
+- обновите список пакетов
+
+sudo apt update
+
+- установите пакеты для загрузки через https
+
+sudo apt install \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg-agent \
+  software-properties-common -y 
+  
+- добавьте ключ gpg
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- добавьте репозиторий Docker в пакеты
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
+
+- обновите индекс пакетов
+
+sudo apt update
+
+- установите docker и docker-compose
+
+sudo apt install docker docker-compose -y 
+
+- проверьте статус установки
+
+sudo systemctl status docker 
+
 ## Шаблон env-файла
 
 Secret - секрет Джанго
